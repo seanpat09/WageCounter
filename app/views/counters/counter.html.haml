@@ -1,0 +1,9 @@
+%div{:id => "wage_form"}
+  - form_tag :root, :method => "get", do
+    = label_tag :wage, 'Input Hourly Wage'
+    = text_field_tag :wage
+    = submit_tag 'Submit Wage'
+- unless @wage.nil?
+  %p= "You make #{number_to_currency(@wage)} an hour" unless @wage.nil?
+  %div{:id => "display_counter"}
+    %p= @per_second
