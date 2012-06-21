@@ -1,9 +1,20 @@
-%div{:id => "wage_form"}
-  - form_tag :root, :method => "get", do
-    = label_tag :wage, 'Input Hourly Wage'
-    = text_field_tag :wage
-    = submit_tag 'Submit Wage'
-- unless @wage.nil?
-  %p= "You make #{number_to_currency(@wage)} an hour" unless @wage.nil?
-  %div{:id => "display_counter"}
-    %p= @per_second
+%p= link_to "Reset" unless @wage.nil?
+%br
+%br
+%br
+%div
+  - if @wage.nil?
+    Bored at work? Stare at your money instead of the clock
+    %br
+    %br
+    - form_tag :root, :method => "get", do
+      .submit
+        $
+        = text_field_tag :wage
+        = submit_tag "What's Your Hourly Wage?"
+  - unless @wage.nil?
+    %br
+    Accumulated Wages:
+    %p
+      .display
+        = @per_second
