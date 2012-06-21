@@ -4,7 +4,7 @@
 %br
 %div
   - if @wage.nil?
-    Bored at work? Stare at your money instead of the clock
+    Bored at work? Watch at your money instead of the clock
     %br
     %br
     - form_tag :root, :method => "get", do
@@ -14,7 +14,7 @@
         = submit_tag "What's Your Hourly Wage?"
   - unless @wage.nil?
     %br
-    Accumulated Wages:
+    How much money you've accumulated sitting here:
     %p
       .display
         = @per_second
